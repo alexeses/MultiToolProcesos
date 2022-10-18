@@ -22,7 +22,7 @@ public class CMultiTool implements ActionListener {
         if (e.getSource() instanceof JButton){
             // Test comments
             if (e.getActionCommand().equals(Messages.BT_EXCEL)) {
-                System.out.printf("Excel");
+                System.out.printf("Excell");
                 openExcel();
             } else if (e.getActionCommand().equals(Messages.BTN_POWERP)) {
                 System.out.printf("Power Point");
