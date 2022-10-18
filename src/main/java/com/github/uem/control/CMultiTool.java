@@ -22,16 +22,16 @@ public class CMultiTool implements ActionListener {
         if (e.getSource() instanceof JButton){
             // Test comments
             if (e.getActionCommand().equals(Messages.BT_EXCEL)) {
-                System.out.printf("Excell");
+                System.out.println("Excel");
                 openExcel();
             } else if (e.getActionCommand().equals(Messages.BTN_POWERP)) {
-                System.out.printf("Power Point");
+                System.out.println("Power Point");
                 openPoweP();
             } else if (e.getActionCommand().equals(Messages.BTN_WORD)) {
-                System.out.printf("Word");
+                System.out.println("Word");
                 openWord();
             } else if (e.getActionCommand().equals(Messages.BTN_NAVEGAR)) {
-                System.out.printf("Navegar");
+                System.out.println("Navegar");
                 navigate();
             }
         }
@@ -45,6 +45,7 @@ public class CMultiTool implements ActionListener {
 
         } catch (IOException e) {
             e.printStackTrace();
+            System.out.println("Error al abrir el navegador");
         }
     }
 
@@ -56,6 +57,7 @@ public class CMultiTool implements ActionListener {
 
         } catch (IOException e) {
             e.printStackTrace();
+            System.out.println("Error al abrir Word");
         }
     }
 
@@ -67,6 +69,7 @@ public class CMultiTool implements ActionListener {
 
         } catch (IOException e) {
             e.printStackTrace();
+            System.out.println("Error al abrir PowerPoint");
         }
 
 
@@ -75,11 +78,12 @@ public class CMultiTool implements ActionListener {
     private void openExcel() {
 
         try {
-            Process miProceso = new ProcessBuilder("C:\\Program Files\\Microsoft Office\\root\\Office16\\EXCEL.EXE").start();
+            Process miProceso = new ProcessBuilder("C:\\Program Files\\Microsoft Office\\root\\Office16\\EXCEL.exe").start();
             System.out.println("Se ejecuta excel");
 
         } catch (IOException e) {
             e.printStackTrace();
+            System.out.println("Error al abrir Excel");
         }
 
     }
