@@ -50,4 +50,20 @@ public class VMenu extends JFrame{
         btnExcel.addActionListener(controller);
     }
 
+    public String getUrl() {
+        String url = txtUrl.getText();
+
+        if (url.isBlank()){
+            showErrorMsg("Debe introducir una url");
+        } else {
+            return url;
+        }
+
+        return "";
+    }
+
+    public void showErrorMsg(String msg) {
+        JOptionPane.showMessageDialog(this , msg, "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
 }
