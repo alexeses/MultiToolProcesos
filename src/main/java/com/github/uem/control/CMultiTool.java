@@ -22,11 +22,10 @@ public class CMultiTool implements ActionListener {
         if (e.getSource() instanceof JButton){
             // Test comments
             if (e.getActionCommand().equals(Messages.BT_EXCEL)) {
-                System.out.printf("Estas pulsando el boton excel");
+                System.out.printf("Excel");
                 openExcel();
             } else if (e.getActionCommand().equals(Messages.BTN_POWERP)) {
                 System.out.printf("Power Point");
-                System.out.println("asd");
                 openPoweP();
             } else if (e.getActionCommand().equals(Messages.BTN_WORD)) {
                 System.out.printf("Word");
@@ -39,12 +38,36 @@ public class CMultiTool implements ActionListener {
     }
 
     private void navigate() {
+
+        try {
+            Process miProceso = new ProcessBuilder("rundll32 url.dll,FileProtocolHandler https://www.google.es").start();
+            System.out.println("Se ejecuta navegador");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void openWord() {
+
+        try {
+            Process miProceso = new ProcessBuilder("C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD.EXE").start();
+            System.out.println("Se ejecuta Word");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void openPoweP() {
+
+        try {
+            Process miProceso = new ProcessBuilder("C:\\Program Files\\Microsoft Office\\root\\Office16\\POWERPNT.EXE").start();
+            System.out.println("Se ejecuta power Point");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
     }
