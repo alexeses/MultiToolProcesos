@@ -40,7 +40,7 @@ public class CMultiTool implements ActionListener {
     private void navigate() {
 
         try {
-            Process miProceso = new ProcessBuilder("rundll32 url.dll,FileProtocolHandler https://www.google.es").start();
+            Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler https://www.google.es");
             System.out.println("Se ejecuta navegador");
 
         } catch (IOException e) {
