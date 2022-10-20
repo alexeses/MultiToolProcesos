@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class CMultiTool implements ActionListener {
 
-    private VMenu vMenu;
+    private final VMenu vMenu;
 
     public CMultiTool(VMenu vMenu){
         this.vMenu = vMenu;
@@ -26,7 +26,7 @@ public class CMultiTool implements ActionListener {
                 openExcel();
             } else if (e.getActionCommand().equals(Messages.BTN_POWERP)) {
                 System.out.println("Power Point");
-                openPoweP();
+                openPowerP();
             } else if (e.getActionCommand().equals(Messages.BTN_WORD)) {
                 System.out.println("Word");
                 openWord();
@@ -65,7 +65,7 @@ public class CMultiTool implements ActionListener {
         }
     }
 
-    private void openPoweP() {
+    private void openPowerP() {
 
         try {
             Process miProceso = new ProcessBuilder("C:\\Program Files\\Microsoft Office\\root\\Office16\\POWERPNT.EXE").start();
