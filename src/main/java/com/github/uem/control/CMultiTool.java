@@ -39,13 +39,17 @@ public class CMultiTool implements ActionListener {
 
     private void navigate() {
 
-        try {
-            Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler "+ vMenu.getUrl());
-            System.out.println("Se ejecuta navegador");
+        if (vMenu.getUrl().isBlank()){
+            System.out.println("error: el usuario no ha introducido URL");
+        } else {
+            try {
+                Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler "+ vMenu.getUrl());
+                System.out.println("Se ejecuta navegador");
 
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Error al abrir el navegador");
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("Error al abrir el navegador");
+            }
         }
     }
 
