@@ -79,8 +79,6 @@ public class CMultiTool implements ActionListener {
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
-
-
             }
         }
     }
@@ -91,12 +89,11 @@ public class CMultiTool implements ActionListener {
         listaWeb = vMenu.cargarDatos();
 
         if (vMenu.getUrl().isBlank() && vMenu.getUrlSelected().isBlank()) {
-            //System.out.println(vMenu.getUrlSelected());
             vMenu.showErrorMsg("No se ha introducido ninguna URL");
             System.out.println("(DEBUG) No se ha introducido ninguna URL");
         } else {
 
-            //Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + vMenu.getUrl());
+            Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + vMenu.getUrl());
             System.out.println("(DEBUG) URL introducida: " + vMenu.getUrl());
 
             if (isValidURL(vMenu.getUrl()) || !vMenu.getUrlSelected().isBlank()) {

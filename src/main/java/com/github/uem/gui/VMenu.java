@@ -4,7 +4,6 @@ import com.github.uem.control.CMultiTool;
 import com.github.uem.lang.Messages;
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -81,7 +80,7 @@ public class VMenu extends JFrame{
 
         if ( url.isEmpty() && getUrlSelected() != null) {
             System.out.println("No se ha introducido ninguna URL");
-            //Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + getUrlSelected());
+            Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + getUrlSelected());
             System.out.println("URL introducida: " + getUrlSelected());
             //showErrorMsg("CUIDADO! No has introducido una URL válida");
         } else {
