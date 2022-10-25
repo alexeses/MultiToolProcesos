@@ -74,7 +74,6 @@ public class CMultiTool implements ActionListener {
             } else if (e.getActionCommand().equals(Messages.BTN_NAVEGAR)) {
                 System.out.println("(DEBUG) Get btnNavegar");
 
-
                 try {
                     navigate();
                 } catch (IOException ex) {
@@ -91,7 +90,7 @@ public class CMultiTool implements ActionListener {
         ArrayList<String> listaWeb;
         listaWeb = vMenu.cargarDatos();
 
-        if (vMenu.getUrl().isBlank()) {
+        if (vMenu.getUrl().isBlank() && vMenu.getUrlSelected().isBlank()) {
             //System.out.println(vMenu.getUrlSelected());
             vMenu.showErrorMsg("No se ha introducido ninguna URL");
             System.out.println("(DEBUG) No se ha introducido ninguna URL");
@@ -100,7 +99,7 @@ public class CMultiTool implements ActionListener {
             //Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + vMenu.getUrl());
             System.out.println("(DEBUG) URL introducida: " + vMenu.getUrl());
 
-            if (isValidURL(vMenu.getUrl())){
+            if (isValidURL(vMenu.getUrl()) || !vMenu.getUrlSelected().isBlank()) {
                 System.out.println("(DEBUG) URL is valid");
                 try {
                     System.out.println("(DEBUG) Adding URL to file");;

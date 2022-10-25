@@ -81,8 +81,9 @@ public class VMenu extends JFrame{
 
         if ( url.isEmpty() && getUrlSelected() != null) {
             System.out.println("No se ha introducido ninguna URL");
-            Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + getUrlSelected());
-            showErrorMsg("CUIDADO! No has introducido una URL válida");
+            //Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + getUrlSelected());
+            System.out.println("URL introducida: " + getUrlSelected());
+            //showErrorMsg("CUIDADO! No has introducido una URL válida");
         } else {
             return url;
         }
