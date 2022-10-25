@@ -28,7 +28,6 @@ public class CMultiTool implements ActionListener {
             while (scan.hasNext()) {
                 web = scan.nextLine();
                 lista.add(web);
-
             }
 
         } catch (FileNotFoundException | NoSuchElementException e) {
@@ -75,23 +74,25 @@ public class CMultiTool implements ActionListener {
             } else if (e.getActionCommand().equals(Messages.BTN_NAVEGAR)) {
                 System.out.println("(DEBUG) Get btnNavegar");
 
-                // If the text field is empty and user select web in the list, open the web
-                if (vMenu.getUrl().isBlank()) {
-                    vMenu.getUrlSelected();
+
+                try {
+                    navigate();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
                 }
 
-                navigate();
 
             }
         }
     }
 
-    private void navigate() {
+    private void navigate() throws IOException {
 
         ArrayList<String> listaWeb;
         listaWeb = vMenu.cargarDatos();
 
-        if (vMenu.getUrl().isBlank()){
+        if (vMenu.getUrl().isBlank()) {
+            //System.out.println(vMenu.getUrlSelected());
             vMenu.showErrorMsg("No se ha introducido ninguna URL");
             System.out.println("(DEBUG) No se ha introducido ninguna URL");
         } else {
@@ -116,7 +117,7 @@ public class CMultiTool implements ActionListener {
                 vMenu.mostrarLista(listaWeb);
 
             } else {
-                System.out.println("(DEBUG) URL is not valid");
+                System.out.println("(DEsBUG) URL is not valid");
                 vMenu.showErrorMsg("La URL no es válida");
             }
 

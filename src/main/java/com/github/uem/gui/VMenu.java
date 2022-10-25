@@ -7,6 +7,7 @@ import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -73,11 +74,15 @@ public class VMenu extends JFrame{
         btnExcel.addActionListener(controller);
     }
 
-    public String getUrl() {
+    public String getUrl() throws IOException {
         String url = txtUrl.getText();
 
-        if (url.isBlank() || url.isEmpty()) {
-            showErrorMsg("CUIDADO! No has introducido ninguna URL válida");
+
+
+        if ( url.isEmpty() && getUrlSelected() != null) {
+            System.out.println("No se ha introducido ninguna URL");
+            Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + getUrlSelected());
+            showErrorMsg("CUIDADO! No has introducido una URL válida");
         } else {
             return url;
         }
@@ -106,8 +111,8 @@ public class VMenu extends JFrame{
     }
 
     public String getUrlSelected() {
-        txtUrl.setText(list.getSelectedValue().toString());
-        return list.getSelectedValue().toString();
+        //txtUrl.setText(list.getSelectedValue().toString());
+        return list.getSelectedValue();
     }
 
     public void showErrorMsg(String msg) {
