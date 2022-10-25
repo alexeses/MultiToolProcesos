@@ -17,7 +17,7 @@ public class VMenu extends JFrame{
     private JButton btnExcel;
     private JButton btnWord;
     private JButton btnPower;
-    private JTextField txtUrl;
+    public JTextField txtUrl;
     private JButton btnSeach;
     private JPanel mainMenu;
     private JList<String> list;

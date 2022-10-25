@@ -88,15 +88,14 @@ public class CMultiTool implements ActionListener {
         ArrayList<String> listaWeb;
         listaWeb = vMenu.cargarDatos();
 
-        if (vMenu.getUrl().isBlank() && vMenu.getUrlSelected() == null) {
-            vMenu.showErrorMsg("No se ha introducido ninguna URL");
+        if (vMenu.getUrl().isEmpty()) {
             System.out.println("(DEBUG) No se ha introducido ninguna URL");
         } else {
 
-            //Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + vMenu.getUrl());
+            Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + vMenu.getUrl());
             System.out.println("(OK DEBUG) URL introducida: " + vMenu.getUrl());
 
-            if (isValidURL(vMenu.getUrl()) || !vMenu.getUrlSelected().isBlank()) {
+            if (isValidURL(vMenu.getUrl()) && !listaWeb.contains(vMenu.getUrl())) {
                 System.out.println("(DEBUG) URL is valid");
                 try {
                     System.out.println("(DEBUG) Adding URL to file");;
