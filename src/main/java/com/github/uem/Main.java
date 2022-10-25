@@ -17,13 +17,11 @@ public class Main {
         }
 
         EventQueue.invokeLater(() -> {
-
             VMenu vM = new VMenu();
 
             CMultiTool controller = new CMultiTool(vM);
 
             vM.setControlled(controller);
-
             vM.setVisible(true);
 
         });
